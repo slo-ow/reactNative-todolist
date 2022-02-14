@@ -7,6 +7,10 @@ import Empty from './components/Empty';
 
 function App() {
   const today = new Date();
+<<<<<<< HEAD
+=======
+  //console.log(today);
+>>>>>>> aea1b539c1df8341262b03334bc68f426546974c
 
   return (
     <SafeAreaProvider>
