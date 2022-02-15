@@ -2,6 +2,7 @@ import React from 'react';
 import {View, Text, StyleSheet, Image, TouchableOpacity} from 'react-native';
 
 function TodoItem({id, text, done, onToggle}) {
+  // {() => onToggle()} 익명 함수 선언
   return (
     <View style={styles.item}>
       <TouchableOpacity onPress={() => onToggle(id)}>
