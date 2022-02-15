@@ -26,7 +26,15 @@ function App() {
       text,
       done: false,
     };
+
     setTodos(todos.concat(todo));
+  };
+
+  const onToggle = id => {
+    const nextTodos = todos.map(todo =>
+      todo.id === id ? {...todo, done: !todo.done} : todo,
+    );
+    setTodos(nextTodos);
   };
 
   return (
@@ -36,7 +44,11 @@ function App() {
           behavior={Platform.select({ios: 'padding', android: undefined})}
           style={styles.avoid}>
           <DateHead date={today} />
-          {todos.length === 0 ? <Empty /> : <TodoList todos={todos} />}
+          {todos.length === 0 ? (
+            <Empty />
+          ) : (
+            <TodoList todos={todos} onToggle={onToggle} />
+          )}
           <AddTodo onInsert={onInsert} />
         </KeyboardAvoidingView>
       </SafeAreaView>
