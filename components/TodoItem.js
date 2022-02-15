@@ -2,7 +2,7 @@ import React from 'react';
 import {View, Text, StyleSheet, Image, TouchableOpacity} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
-function TodoItem({id, text, done, onToggle}) {
+function TodoItem({id, text, done, onToggle, onRemove}) {
   // {() => onToggle()} 익명 함수 선언
   return (
     <View style={styles.item}>
@@ -17,7 +17,9 @@ function TodoItem({id, text, done, onToggle}) {
       </TouchableOpacity>
       <Text style={[styles.text, done && styles.lineThrough]}>{text}</Text>
       {done ? (
-        <Icon name="delete" size={32} color="red" />
+        <TouchableOpacity onPress={() => onRemove(id)}>
+          <Icon name="delete" size={32} color="red" />
+        </TouchableOpacity>
       ) : (
         <View style={styles.removePlaceholder} />
       )}
