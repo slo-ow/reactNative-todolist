@@ -1,2 +1,2 @@
 # reactNative-todolist
-practice to-do list in reactNative
+Practice to-do list of reactNative
